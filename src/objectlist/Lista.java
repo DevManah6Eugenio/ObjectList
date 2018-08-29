@@ -2,46 +2,89 @@ package objectlist;
 
 /**
  *
- * @author manasses Email manasses.java@gmail.com
- *
+ * @author manasses 
+ * Email manasses.java@gmail.com
  */
 public class Lista implements List {
 
-    private Object[] listObjetos;
-    private Object[] listObjetosAuxiliar;
-    int cont = 0;
+    private Object[] listObjetos = null;
+    private int posicaoLivre;
+    private String tipe = null;
 
     Lista(Object obj) {
-        listObjetos = new obj[0];
+        listObjetos = new Obj[0];
+        this.posicaoLivre = 0;
+        this.tipe = obj.toString();
     }
-    
-    public Object tipeClass() {
-      return listObjetos.getClass();
+
+    @Override
+    public String tipeObjetList() {
+        return this.tipe;
     }
-        
+
+    /**
+     *
+     * @return tamanho da lista
+     */
+    @Override
     public int length() {
-        return listObjetos.length;
+        return this.posicaoLivre;
     }
 
-    public void add(Object ob) {
-        listObjetosAuxiliar = listObjetos;
-        listObjetos = new Object[(listObjetosAuxiliar.length + 1)];
-        cont = 0;
-        
-        for (Object lobj : listObjetosAuxiliar) {
-            cont++;
-            listObjetos[cont] = lobj;
+    /**
+     *
+     * @param objeto que sera adicionado a lista
+     */
+    @Override
+    public void add(Object objeto) {
+
+        this.posicaoLivre++;
+        Object[] listaAux = new Object[this.posicaoLivre];
+
+        for (int i = 0; i < this.posicaoLivre - 1; i++) {
+            listaAux[i] = listObjetos[i];
         }
-        
-        listObjetos[listObjetosAuxiliar.length] = ob;
-    }
-    
-    public void remove(int idice) {
-        
-    }
-    
-    public void clear(){
+
+        this.listObjetos = listaAux;
+        this.listObjetos[(this.posicaoLivre - 1)] = objeto;
         
     }
 
+    /**
+     *
+     * @param indice que sera excluido da lista
+     */
+    @Override
+    public void remove(int indice) {
+        this.posicaoLivre--;
+        Object[] listaAux = new Object[this.posicaoLivre];
+        int cont = 0;
+        
+        for (int i = 0; i <= this.posicaoLivre; i++) {
+            if (!(indice == i)) {
+                listaAux[cont] = listObjetos[i];
+                cont++;
+            }
+        }
+        listObjetos = listaAux;
+    }
+
+    /**
+     *
+     * @param indice da referencia a ser acessado
+     * @return referencia
+     */
+    @Override
+    public Object getRef(int indice) {
+        return this.listObjetos[indice];
+    }
+
+    /**
+     *
+     * @param indice da referencia a ser limpado
+     */
+    @Override
+    public void cleanRef(int indice) {
+        this.listObjetos[indice] = null;
+    }
 }
