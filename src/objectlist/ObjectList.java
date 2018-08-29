@@ -29,7 +29,7 @@ public class ObjectList {
         Obj aux2 = (Obj) lista.getRef(1);
         aux2.print();
 
-        System.out.println("tipo da lista: " + lista.tipeObjetList());
+        System.out.println("tipo da lista: " + lista.typeObjectList());
 
         lista.remove(0);
 

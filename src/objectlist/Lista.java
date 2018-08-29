@@ -9,17 +9,17 @@ public class Lista implements List {
 
     private Object[] listObjetos = null;
     private int posicaoLivre;
-    private String tipe = null;
+    private String type = null;
 
     Lista(Object obj) {
         listObjetos = new Obj[0];
         this.posicaoLivre = 0;
-        this.tipe = obj.toString();
+        this.type = obj.toString();
     }
 
     @Override
-    public String tipeObjetList() {
-        return this.tipe;
+    public String typeObjectList() {
+        return this.type;
     }
 
     /**
@@ -37,7 +37,6 @@ public class Lista implements List {
      */
     @Override
     public void add(Object objeto) {
-
         this.posicaoLivre++;
         Object[] listaAux = new Object[this.posicaoLivre];
 
