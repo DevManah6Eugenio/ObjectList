@@ -5,7 +5,8 @@ package objectlist;
  * @author manasses 
  * Email manasses.java@gmail.com
  */
-public class Lista implements List {
+//public class Lista implements List {
+public class Lista {
 
     private Object[] listObjetos = null;
     private int posicaoLivre;
@@ -17,7 +18,6 @@ public class Lista implements List {
         this.type = obj.toString();
     }
 
-    @Override
     public String typeObjectList() {
         return this.type;
     }
@@ -26,7 +26,6 @@ public class Lista implements List {
      *
      * @return tamanho da lista
      */
-    @Override
     public int length() {
         return this.posicaoLivre;
     }
@@ -35,7 +34,6 @@ public class Lista implements List {
      *
      * @param objeto que sera adicionado a lista
      */
-    @Override
     public void add(Object objeto) {
         this.posicaoLivre++;
         Object[] listaAux = new Object[this.posicaoLivre];
@@ -53,7 +51,6 @@ public class Lista implements List {
      *
      * @param indice que sera excluido da lista
      */
-    @Override
     public void remove(int indice) {
         this.posicaoLivre--;
         Object[] listaAux = new Object[this.posicaoLivre];
@@ -73,7 +70,6 @@ public class Lista implements List {
      * @param indice da referencia a ser acessado
      * @return referencia
      */
-    @Override
     public Object getRef(int indice) {
         return this.listObjetos[indice];
     }
@@ -82,7 +78,6 @@ public class Lista implements List {
      *
      * @param indice da referencia a ser limpado
      */
-    @Override
     public void cleanRef(int indice) {
         this.listObjetos[indice] = null;
     }
