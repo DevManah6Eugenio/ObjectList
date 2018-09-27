@@ -1,15 +1,10 @@
 package objectlist;
 
-/**
- *
- * @author manasses
- * Email manasses.java@gmail.com
- *
- */
-
 public class ObjectlistException extends RuntimeException {
 
-    ObjectlistException() {
+	private static final long serialVersionUID = 1L;
+
+	ObjectlistException() {
     
     }
     

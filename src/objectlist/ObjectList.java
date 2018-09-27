@@ -1,41 +1,27 @@
 package objectlist;
 
-/**
- *
- * @author manasses Email manasses.java@gmail.com
- *
- */
 public class ObjectList {
+	public static void main(String[] args) {
+		Obj objeto1 = new Obj();
+		Obj objeto2 = new Obj("segundo");
 
-    // metodo construtor
-    ObjectList() {
+		Lista lista = new Lista(Obj.class);
 
-    }
+		System.out.println("tamanho da lista: " + lista.tamanho());
+		lista.adiciona(objeto1);
+		System.out.println("tamanho da lista: " + lista.tamanho());
+		lista.adiciona(objeto2);
+		System.out.println("tamanho da lista: " + lista.tamanho());
 
-    public static void main(String[] args) {
+		System.out.println("contem objeto 1 :" + lista.contem(objeto1));
 
-        Obj objeto1 = new Obj();
-        Obj objeto2 = new Obj("segundo");
+		System.out.println("contem novo objeto :" + lista.contem(new Obj()));
 
-        Lista lista = new Lista(Obj.class);
-
-        lista.add(objeto1);
-        System.out.println("tamanho da lista: " + lista.length());
-        lista.add(objeto2);
-        System.out.println("tamanho da lista: " + lista.length());
-
-        Obj aux = (Obj) lista.getRef(0);
-        aux.print();
-        Obj aux2 = (Obj) lista.getRef(1);
-        aux2.print();
-
-        System.out.println("tipo da lista: " + lista.typeObjectList());
-
-        lista.remove(0);
-
-        Obj aux3 = (Obj) lista.getRef(0);
-        aux3.print();
-        
-        System.out.println(lista.length());
-    }
+		Obj aux = (Obj) lista.pega(1);
+		aux.print();
+		Obj aux2 = (Obj) lista.pega(2);
+		aux2.print();
+		Obj aux3 = (Obj) lista.pega(3);
+		aux3.print();
+	}
 }
