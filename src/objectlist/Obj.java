@@ -12,6 +12,7 @@ public class Obj {
 		this.mensagem = m;
 	}
 
+	
 	public void print() {
 		if (this.mensagem == null) {
 			System.out.println("to aqui");
